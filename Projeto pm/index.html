@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÁrvoreSegura AI - Sistema Inteligente de Gestão Arbórea</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">🌳 Sem nome ainda</h1>
+            <p class="tagline">Sistema Inteligente de Gestão Arbórea Urbana</p>
+            
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">1,247</span>
+                    <span class="stat-label">Árvores Analisadas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">89</span>
+                    <span class="stat-label">Denúncias Resolvidas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">156</span>
+                    <span class="stat-label">Novos Plantios</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">97%</span>
+                    <span class="stat-label">Precisão da IA</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="main-card">
+            <div class="nav-tabs">
+                <div class="nav-tab active" data-tab="report">
+                    <i class="fas fa-exclamation-triangle tab-icon"></i>
+                    <span>Nova Denúncia</span>
+                </div>
+                <div class="nav-tab" data-tab="analysis">
+                    <i class="fas fa-brain tab-icon"></i>
+                    <span>Análise IA</span>
+                </div>
+                <div class="nav-tab" data-tab="recommendations">
+                    <i class="fas fa-seedling tab-icon"></i>
+                    <span>Recomendações</span>
+                </div>
+                <div class="nav-tab" data-tab="tracking">
+                    <i class="fas fa-chart-line tab-icon"></i>
+                    <span>Acompanhamento</span>
+                </div>
+                <div class="nav-tab" data-tab="dashboard">
+                    <i class="fas fa-tachometer-alt tab-icon"></i>
+                    <span>Dashboard</span>
+                </div>
+            </div>
+            <div class="tab-content active" id="report">
+                <h2 style="color: white; margin-bottom: 2rem; font-size: 2rem; font-weight: 700;">
+                    <i class="fas fa-exclamation-triangle" style="margin-right: 0.5rem; color: #4facfe;"></i>
+                    Nova Denúncia de Árvore
+                </h2>
+                <div class="weather-widget">
+                    <div class="weather-info">
+                        <div class="weather-temp">23°C</div>
+                        <div class="weather-condition">Parcialmente nublado • Vento: 12 km/h</div>
+                    </div>
+                    <i class="fas fa-cloud-sun weather-icon"></i>
+                </div>
+
+                <form id="reportForm">
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-list-alt" style="margin-right: 0.5rem;"></i>
+                                Tipo do Problema
+                            </label>
+                            <select class="form-select" id="problemType" required>
+                                <option value="">Selecione o tipo de problema</option>
+                                <option value="arvore_caida">🌲 Árvore Caída</option>
+                                <option value="arvore_podre">🦠 Árvore Podre/Doente</option>
+                                <option value="galhos_perigosos">⚠️ Galhos Perigosos</option>
+                                <option value="raizes_danificando">🏗️ Raízes Danificando</option>
+                                <option value="necessita_poda">✂️ Necessita Poda</option>
+                                <option value="praga_insetos">🐛 Praga de Insetos</option>
+                                <option value="obstrucao_via">🚧 Obstruindo Via</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-clock" style="margin-right: 0.5rem;"></i>
+                                Quando Ocorreu?
+                            </label>
+                            <select class="form-select" id="timeOccurred" required>
+                                <option value="">Selecione quando ocorreu</option>
+                                <option value="agora">Agora mesmo</option>
+                                <option value="hoje">Hoje</option>
+                                <option value="ontem">Ontem</option>
+                                <option value="semana">Esta semana</option>
+                                <option value="mes">Este mês</option>
+                                <option value="nao_sei">Não sei ao certo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    
+                    <div class="form-group full-width">
+                        <label class="form-label">
+                            <i class="fas fa-exclamation-circle" style="margin-right: 0.5rem;"></i>
+                            Nível de Urgência
+                        </label>
+                        <div class="priority-selector">
+                            <div class="priority-option priority-low" data-priority="baixa">
+                                <div class="priority-icon">😌</div>
+                                <div>Baixa</div>
+                                <small>Sem pressa</small>
+                            </div>
+                            <div class="priority-option priority-medium" data-priority="media">
+                                <div class="priority-icon">⚠️</div>
+                                <div>Média</div>
+                                <small>Alguns dias</small>
+                            </div>
+                            <div class="priority-option priority-high" data-priority="alta">
+                                <div class="priority-icon">🚨</div>
+                                <div>Alta</div>
+                                <small>Urgente</small>
+                            </div>
+                            <div class="priority-option priority-emergency" data-priority="emergencia">
+                                <div class="priority-icon">🆘</div>
+                                <div>Emergência</div>
+                                <small>Imediato</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Location Picker -->
+                    <div class="form-group full-width">
+                        <label class="form-label">
+                            <i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i>
+                            Localização Detalhada
+                        </label>
+                        <input type="text" class="form-input" id="streetAddress" placeholder="Ex: Rua das Flores, 123 - Centro" required>
+                        
+                        <div class="location-picker">
+                            <div class="map-placeholder">
+                                <i class="fas fa-map" style="margin-right: 0.5rem;"></i>
+                                Clique para abrir o mapa interativo
+                            </div>
+                            <div class="location-info">
+                                <div class="location-item">
+                                    <div class="location-label">Coordenadas</div>
+                                    <div class="location-value" id="coordinates">-23.5489, -46.6388</div>
+                                </div>
+                                <div class="location-item">
+                                    <div class="location-label">Bairro</div>
+                                    <div class="location-value" id="neighborhood">Centro</div>
+                                </div>
+                                <div class="location-item">
+                                    <div class="location-label">CEP</div>
+                                    <div class="location-value" id="zipCode">01310-100</div>
+                                </div>
+                                <div class="location-item">
+                                    <div class="location-label">Município</div>
+                                    <div class="location-value" id="city">São Paulo - SP</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="form-group full-width">
+                        <label class="form-label">
+                            <i class="fas fa-comment-alt" style="margin-right: 0.5rem;"></i>
+                            Descrição Detalhada do Problema
+                        </label>
+                        <textarea class="form-textarea" id="description" rows="4" placeholder="Descreva o problema em detalhes: estado da árvore, riscos observados, contexto do local..." required></textarea>
+                    </div>
+
+                    <!-- File Upload -->
+                    <div class="form-group full-width">
+                        <label class="form-label">
+                            <i class="fas fa-camera" style="margin-right: 0.5rem;"></i>
+                            Fotos do Local (Recomendado: múltiplos ângulos)
+                        </label>
+                        <div class="file-upload-area" id="fileUploadArea">
+                            <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
+                            <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                            <div class="upload-text">Arraste fotos aqui ou clique para selecionar</div>
+                            <div class="upload-subtext">Máximo 10 fotos • JPG, PNG até 5MB cada</div>
+                        </div>
+                        <div class="file-preview" id="filePreview"></div>
+                    </div>
+
+                    <!-- Additional Details -->
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-tree" style="margin-right: 0.5rem;"></i>
+                                Espécie da Árvore (se conhecer)
+                            </label>
+                            <input type="text" class="form-input" id="treeSpecies" placeholder="Ex: Ipê, Ficus, não sei...">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-ruler-vertical" style="margin-right: 0.5rem;"></i>
+                                Altura Estimada
+                            </label>
+                            <select class="form-select" id="estimatedHeight">
+                                <option value="">Selecione a altura</option>
+                                <option value="pequena">Pequena (até 3m)</option>
+                                <option value="media">Média (3-8m)</option>
+                                <option value="grande">Grande (8-15m)</option>
+                                <option value="muito_grande">Muito Grande (15m+)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-user" style="margin-right: 0.5rem;"></i>
+                                Seu Nome Completo
+                            </label>
+                            <input type="text" class="form-input" id="reporterName" placeholder="Nome completo" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>
+                                E-mail para Contato
+                            </label>
+                            <input type="email" class="form-input" id="reporterEmail" placeholder="seu@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-phone" style="margin-right: 0.5rem;"></i>
+                                Telefone/WhatsApp
+                            </label>
+                            <input type="tel" class="form-input" id="reporterPhone" placeholder="(11) 99999-9999" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-id-card" style="margin-right: 0.5rem;"></i>
+                                CPF (opcional)
+                            </label>
+                            <input type="text" class="form-input" id="reporterCPF" placeholder="000.000.000-00">
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button type="button" class="btn btn-primary" onclick="submitReport()">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Denúncia
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="saveDraft()">
+                            <i class="fas fa-save"></i>
+                            Salvar Rascunho
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="clearForm()">
+                            <i class="fas fa-trash"></i>
+                            Limpar Formulário
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Analysis Tab -->
+            <div class="tab-content" id="analysis">
+                <h2 style="color: white; margin-bottom: 2rem; font-size: 2rem; font-weight: 700;">
+                    <i class="fas fa-brain" style="margin-right: 0.5rem; color: #4facfe;"></i>
+                    Análise Inteligente com IA
+                </h2>
+
+                <div class="analysis-container">
+                    <!-- Left Panel - Image Analysis -->
+                    <div class="analysis-panel">
+                        <div class="panel-header">
+                            <i class="fas fa-image panel-icon"></i>
+                            <h3 class="panel-title">Análise de Imagens</h3>
+                        </div>
+                        
+                        <div class="analysis-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="imageProgress"></div>
+                            </div>
+                            <div class="progress-text" id="imageStatus">Aguardando fotos...</div>
+                        </div>
+
+                        <div id="imageResults" class="hidden">
+                            <div class="analysis-result">
+                                <div class="result-title">🔍 Identificação da Espécie</div>
+                                <div class="result-content" id="speciesIdentification">Analisando...</div>
+                                <div class="confidence-meter">
+                                    <span>Confiança:</span>
+                                    <div class="confidence-bar">
+                                        <div class="confidence-fill" id="speciesConfidence" style="width: 0%"></div>
+                                    </div>
+                                    <span id="speciesPercentage">0%</span>
+                                </div>
+                            </div>
+
+                            <div class="analysis-result">
+                                <div class="result-title">🏥 Estado de Saúde</div>
+                                <div class="result-content" id="healthStatus">Analisando...</div>
+                                <div class="confidence-meter">
+                                    <span>Confiança:</span>
+                                    <div class="confidence-bar">
+                                        <div class="confidence-fill" id="healthConfidence" style="width: 0%"></div>
+                                    </div>
+                                    <span id="healthPercentage">0%</span>
+                                </div>
+                            </div>
+
+                            <div class="analysis-result">
+                                <div class="result-title">⚠️ Avaliação de Riscos</div>
+                                <div class="result-content" id="riskAssessment">Analisando...</div>
+                                <div class="confidence-meter">
+                                    <span>Confiança:</span>
+                                    <div class="confidence-bar">
+                                        <div class="confidence-fill" id="riskConfidence" style="width: 0%"></div>
+                                    </div>
+                                    <span id="riskPercentage">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Panel - Environmental Analysis -->
+                    <div class="analysis-panel">
+                        <div class="panel-header">
+                            <i class="fas fa-leaf panel-icon"></i>
+                            <h3 class="panel-title">Análise Ambiental</h3>
+                        </div>
+                        
+                        <div class="analysis-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="envProgress"></div>
+                            </div>
+                            <div class="progress-text" id="envStatus">Iniciando análise...</div>
+                        </div>
+
+                        <div id="envResults" class="hidden">
+                            <div class="analysis-result">
+                                <div class="result-title">🌍 Tipo de Solo</div>
+                                <div class="result-content" id="soilAnalysis">Analisando dados geológicos...</div>
+                            </div>
+
+                            <div class="analysis-result">
+                                <div class="result-title">☀️ Condições Climáticas</div>
+                                <div class="result-content" id="climateAnalysis">Consultando dados meteorológicos...</div>
+                            </div>
+
+                            <div class="analysis-result">
+                                <div class="result-title">📏 Espaço Disponível</div>
+                                <div class="result-content" id="spaceAnalysis">Calculando área disponível...</div>
+                            </div>
+
+                            <div class="analysis-result">
+                                <div class="result-title">🏙️ Contexto Urbano</div>
+                                <div class="result-content" id="urbanContext">Analisando entorno urbano...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Chat Assistant -->
+                <div class="ai-chat">
+                    <div class="panel-header">
+                        <i class="fas fa-robot panel-icon"></i>
+                        <h3 class="panel-title">Assistente IA - Tire suas dúvidas</h3>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="chat-message ai">
+                            <strong>🤖 ÁrvoreIA:</strong> Olá! Sou seu assistente especializado em árvores urbanas. Posso esclarecer dúvidas sobre a análise, espécies recomendadas, cuidados com plantio ou qualquer questão relacionada. Como posso ajudar?
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-area">
+                        <textarea class="form-textarea chat-input" id="chatInput" rows="2" placeholder="Faça sua pergunta sobre a análise ou árvores..."></textarea>
+                        <button class="btn btn-primary" onclick="sendChatMessage()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="switchTab('recommendations')" id="continueToRecommendations" disabled>
+                        <i class="fas fa-seedling"></i>
+                        Ver Recomendações
+                    </button>
+                    <button class="btn btn-secondary" onclick="downloadAnalysis()">
+                        <i class="fas fa-download"></i>
+                        Baixar Relatório
+                    </button>
+                    <button class="btn btn-secondary" onclick="restartAnalysis()">
+                        <i class="fas fa-redo"></i>
+                        Refazer Análise
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recommendations Tab -->
+            <div class="tab-content" id="recommendations">
+                <h2 style="color: white; margin-bottom: 2rem; font-size: 2rem; font-weight: 700;">
+                    <i class="fas fa-seedling" style="margin-right: 0.5rem; color: #4facfe;"></i>
+                    Recomendações Personalizadas de Replantio
+                </h2>
+
+                <!-- Environmental Summary -->
+                <div class="analysis-panel" style="margin-bottom: 2rem;">
+                    <div class="panel-header">
+                        <i class="fas fa-map-marked-alt panel-icon"></i>
+                        <h3 class="panel-title">Resumo do Local</h3>
+                    </div>
+                    <div class="location-info">
+                        <div class="location-item">
+                            <div class="location-label">Tipo de Solo</div>
+                            <div class="location-value" id="finalSoilType">Argiloso com boa drenagem</div>
+                        </div>
+                        <div class="location-item">
+                            <div class="location-label">Exposição Solar</div>
+                            <div class="location-value" id="finalSunExposure">Sol pleno (6-8h/dia)</div>
+                        </div>
+                        <div class="location-item">
+                            <div class="location-label">Espaço Disponível</div>
+                            <div class="location-value" id="finalSpace">Médio (15-20m²)</div>
+                        </div>
+                        <div class="location-item">
+                            <div class="location-label">Clima Local</div>
+                            <div class="location-value" id="finalClimate">Subtropical úmido</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tree Recommendations -->
+                <div class="recommendations-grid">
+                    <!-- Recommendation 1 -->
+                    <div class="tree-card" onclick="selectTree(this, 'ipe-amarelo')">
+                        <div class="tree-header">
+                            <div class="tree-emoji">🌳</div>
+                            <div class="tree-info">
+                                <h3>Ipê Amarelo</h3>
+                                <div class="tree-latin">Handroanthus albus</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tree-features">
+                            <span class="feature-tag">Nativa</span>
+                            <span class="feature-tag">Floração Exuberante</span>
+                            <span class="feature-tag">Resistente à Seca</span>
+                            <span class="feature-tag">Baixa Manutenção</span>
+                        </div>
+                        
+                        <div class="result-content">
+                            Árvore icônica brasileira com floração amarela espetacular. Crescimento moderado, ideal para arborização urbana. Floresce no inverno quando perde as folhas.
+                        </div>
+                        
+                        <div class="compatibility-score">
+                            <span class="score-label">Compatibilidade</span>
+                            <span class="score-value">95%</span>
+                        </div>
+                    </div>
+
+                    <!-- Recommendation 2 -->
+                    <div class="tree-card" onclick="selectTree(this, 'pau-brasil')">
+                        <div class="tree-header">
+                            <div class="tree-emoji">🌲</div>
+                            <div class="tree-info">
+                                <h3>Pau-Brasil</h3>
+                                <div class="tree-latin">Paubrasilia echinata</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tree-features">
+                            <span class="feature-tag">Árvore Nacional</span>
+                            <span class="feature-tag">Madeira Nobre</span>
+                            <span class="feature-tag">Crescimento Lento</span>
+                            <span class="feature-tag">Valor Histórico</span>
+                        </div>
+                        
+                        <div class="result-content">
+                            Árvore símbolo do Brasil, com flores laranja-avermelhadas. Crescimento lento mas extremamente resistente. Contribui para preservação da espécie.
+                        </div>
+                        
+                        <div class="compatibility-score">
+                            <span class="score-label">Compatibilidade</span>
+                            <span class="score-value">88%</span>
+                        </div>
+                    </div>
+
+                    <!-- Recommendation 3 -->
+                    <div class="tree-card" onclick="selectTree(this, 'quaresmeira')">
+                        <div class="tree-header">
+                            <div class="tree-emoji">🌸</div>
+                            <div class="tree-info">
+                                <h3>Quaresmeira</h3>
+                                <div class="tree-latin">Tibouchina granulosa</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tree-features">
+                            <span class="feature-tag">Floração Roxa</span>
+                            <span class="feature-tag">Crescimento Rápido</span>
+                            <span class="feature-tag">Ornamental</span>
+                            <span class="feature-tag">Atrai Polinizadores</span>
+                        </div>
+                        
+                        <div class="result-content">
+                            Árvore de floração exuberante com flores roxas. Crescimento rápido e adaptabilidade excepcional. Ideal para paisagismo urbano.
+                        </div>
+                        
+                        <div class="compatibility-score">
+                            <span class="score-label">Compatibilidade</span>
+                            <span class="score-value">92%</span>
+                        </div>
+                    </div>
+
+                    <!-- Recommendation 4 -->
+                    <div class="tree-card" onclick="selectTree(this, 'jacaranda')">
+                        <div class="tree-header">
+                            <div class="tree-emoji">💜</div>
+                            <div class="tree-info">
+                                <h3>Jacarandá-Mimoso</h3>
+                                <div class="tree-latin">Jacaranda mimosifolia</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tree-features">
+                            <span class="feature-tag">Flores Lilás</span>
+                            <span class="feature-tag">Sombra Generosa</span>
+                            <span class="feature-tag">Resistente</span>
+                            <span class="feature-tag">Tradicional</span>
+                        </div>
+                        
+                        <div class="result-content">
+                            Clássico da arborização urbana brasileira. Floração lilás magnífica na primavera. Proporciona sombra abundante e é muito resistente.
+                        </div>
+                        
+                        <div class="compatibility-score">
+                            <span class="score-label">Compatibilidade</span>
+                            <span class="score-value">85%</span>
+                        </div>
+                    </div>
+
+                    <!-- Recommendation 5 -->
+                    <div class="tree-card" onclick="selectTree(this, 'paineira')">
+                        <div class="tree-header">
+                            <div class="tree-emoji">🌺</div>
+                            <div class="tree-info">
+                                <h3>Paineira</h3>
+                                <div class="tree-latin">Ceiba speciosa</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tree-features">
+                            <span class="feature-tag">Flores Rosa</span>
+                            <span class="feature-tag">Tronco Peculiar</span>
+                            <span class="feature-tag">Porte Majestoso</span>
+                            <span class="feature-tag">Paina Sedosa</span>
+                        </div>
+                        
+                        <div class="result-content">
+                            Árvore de grande porte com tronco barrigudo característico. Flores rosas abundantes e produção de paina. Impacto visual marcante.
+                        </div>
+                        
+                        <div class="compatibility-score">
+                            <span class="score-label">Compatibilidade</span>
+                            <span class="score-value">78%</span>
+                        </div>
+                    </div>
+
+                    <!-- Recommendation 6 -->
+                    <div class="tree-card" onclick="selectTree(this, 'flamboyant')">
+                        <div class="tree-header">
+                            <div class="tree-emoji">🔥</div>
+                            <div class="tree-info">
+                                <h3>Flamboyant</h3>
+                                <div class="tree-latin">Delonix regia</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tree-features">
+                            <span class="feature-tag">Flores Vermelhas</span>
+                            <span class="feature-tag">Copa Ampla</span>
+                            <span class="feature-tag">Tropical</span>
+                            <span class="feature-tag">Ornamental</span>
+                        </div>
+                        
+                        <div class="result-content">
+                            Árvore tropical espetacular com flores vermelhas intensas. Copa ampla e horizontal. Ideal para grandes espaços e avenidas.
+                        </div>
+                        
+                        <div class="compatibility-score">
+                            <span class="score-label">Compatibilidade</span>
+                            <span class="score-value">82%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Selected Tree Details -->
+                <div class="analysis-panel" id="selectedTreeDetails" style="display: none;">
+                    <div class="panel-header">
+                        <i class="fas fa-info-circle panel-icon"></i>
+                        <h3 class="panel-title">Detalhes da Árvore Selecionada</h3>
+                    </div>
+                    <div id="treeDetails">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+
+                <!-- Planting Plan -->
+                <div class="analysis-panel">
+                    <div class="panel-header">
+                        <i class="fas fa-calendar-alt panel-icon"></i>
+                        <h3 class="panel-title">Plano de Plantio</h3>
+                    </div>
+                    <div class="form-grid">
+                        <div class="location-item">
+                            <div class="location-label">Melhor Época</div>
+                            <div class="location-value">Outubro - Dezembro (Início das chuvas)</div>
+                        </div>
+                        <div class="location-item">
+                            <div class="location-label">Tempo de Preparação</div>
+                            <div class="location-value">2-3 semanas</div>
+                        </div>
+                        <div class="location-item">
+                            <div class="location-label">Cova Recomendada</div>
+                            <div class="location-value">80x80x80cm</div>
+                        </div>
+                        <div class="location-item">
+                            <div class="location-label">Custo Estimado</div>
+                            <div class="location-value">R$ 450 - R$ 800</div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-content" style="margin-top: 1.5rem;">
+                        <strong>Preparação do Solo:</strong> Adicionar 30% de adubo orgânico, verificar pH (6,0-7,0), garantir boa drenagem.<br>
+                        <strong>Plantio:</strong> Muda de 1,5-2m de altura, tutor de 2,5m, proteção contra ventos.<br>
+                        <strong>Cuidados Iniciais:</strong> Rega 3x/semana nos primeiros 6 meses, poda de formação após 1 ano.
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="approveRecommendation()">
+                        <i class="fas fa-check-circle"></i>
+                        Aprovar Recomendação
+                    </button>
+                    <button class="btn btn-secondary" onclick="requestCustomAnalysis()">
+                        <i class="fas fa-cogs"></i>
+                        Análise Personalizada
+                    </button>
+                    <button class="btn btn-secondary" onclick="switchTab('tracking')">
+                        <i class="fas fa-arrow-right"></i>
+                        Acompanhar Processo
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tracking Tab -->
+            <div class="tab-content" id="tracking">
+                <h2 style="color: white; margin-bottom: 2rem; font-size: 2rem; font-weight: 700;">
+                    <i class="fas fa-chart-line" style="margin-right: 0.5rem; color: #4facfe;"></i>
+                    Acompanhamento do Processo
+                </h2>
+
+                <!-- Process Status Card -->
+                <div class="analysis-panel" style="margin-bottom: 2rem;">
+                    <div class="panel-header">
+                        <i class="fas fa-clipboard-check panel-icon"></i>
+                        <h3 class="panel-title">Status Atual</h3>
+                    </div>
+                    <div class="location-info">
+                        <div class="location-item">
+                            <div class="location-label">Protocolo</div>
+                            <div class="location-value" id="protocolNumber">#ARV-2024-001247</div>
+                        </div>
+                        <div class="location-item">
+                            <div class="location-label">Status</div>
+                            <div class="location-value" style="color: #4facfe;">⏳ Aguardando Vistoria</div>
+                        </div>
+                        <div class="location-item">
+                            <div class="location-label">Prioridade</div>
+                            <div class="location-value" id="processPriority">Média</div>
+                        </div>
+                        <div class="location-item">
+                            <div class="location-label">Previsão</div>
+                            <div class="location-value">5-7 dias úteis</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="analysis-panel" style="margin-bottom: 2rem;">
+                    <div class="panel-header">
+                        <i class="fas fa-history panel-icon"></i>
+                        <h3 class="panel-title">Cronograma do Processo</h3>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">✅ Denúncia Recebida</div>
+                                <div class="timeline-time">Hoje, 14:30 - Protocolo gerado automaticamente</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">✅ Análise IA Concluída</div>
+                                <div class="timeline-time">Hoje, 14:32 - Relatório técnico disponível</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">✅ Recomendações Geradas</div>
+                                <div class="timeline-time">Hoje, 14:35 - 6 opções de replantio sugeridas</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker pending"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">⏳ Vistoria Técnica Agendada</div>
+                                <div class="timeline-time">Amanhã, 09:00 - Técnico: João Silva (#1247)</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker pending"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">📅 Remoção/Poda Programada</div>
+                                <div class="timeline-time">3-5 dias após vistoria - Equipe especializada</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker pending"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">🌱 Replantio Planejado</div>
+                                <div class="timeline-time">2-3 semanas após remoção - Muda selecionada</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Communication Channels -->
+                <div class="analysis-panel" style="margin-bottom: 2rem;">
+                    <div class="panel-header">
+                        <i class="fas fa-comments panel-icon"></i>
+                        <h3 class="panel-title">Canais de Comunicação</h3>
+                    </div>
+                    <div class="form-grid">
+                        <div class="location-item">
+                            <div class="location-label">E-mail</div>
+                            <div class="location-value">✉️ Atualizações automáticas</div>
+                        </div>
+                        <div class="location-item">
+                            <div class="location-label">WhatsApp</div>
+                            <div class="location-value">📱 (11) 9999-8888</div>
+                        </div>
+                        <div class="location-item">
+                            <div class="location-label">Portal Online</div>
+                            <div class="location-value">🌐 arvoresegura.gov.br</div>
+                        </div>
+                        <div class="location-item">
+                            <div class="location-label">App Mobile</div>
+                            <div class="location-value">📱 ÁrvoreSegura App</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Updates -->
+                <div class="analysis-panel">
+                    <div class="panel-header">
+                        <i class="fas fa-bell panel-icon"></i>
+                        <h3 class="panel-title">Atualizações Recentes</h3>
+                    </div>
+                    <div class="chat-messages" style="max-height: 200px;">
+                        <div class="chat-message ai">
+                            <strong>🤖 Sistema:</strong> Sua denúncia foi recebida e analisada. Vistoria técnica agendada para amanhã às 9h.
+                        </div>
+                        <div class="chat-message ai">
+                            <strong>👨‍🔧 João Silva:</strong> Sou o técnico responsável pela vistoria. Confirmarei minha chegada por WhatsApp 30 min antes.
+                        </div>
+                        <div class="chat-message ai">
+                            <strong>🌱 Dept. Verde:</strong> Mudas das espécies recomendadas já estão reservadas no viveiro municipal.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="downloadCertificate()">
+                        <i class="fas fa-certificate"></i>
+                        Baixar Comprovante
+                    </button>
+                    <button class="btn btn-secondary" onclick="contactTechnician()">
+                        <i class="fas fa-phone"></i>
+                        Contatar Técnico
+                    </button>
+                    <button class="btn btn-secondary" onclick="scheduleReminder()">
+                        <i class="fas fa-alarm-clock"></i>
+                        Agendar Lembrete
+                    </button>
+                    <button class="btn btn-secondary" onclick="shareProgress()">
+                        <i class="fas fa-share-alt"></i>
+                        Compartilhar Progresso
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dashboard Tab -->
+            <div class="tab-content" id="dashboard">
+                <h2 style="color: white; margin-bottom: 2rem; font-size: 2rem; font-weight: 700;">
+                    <i class="fas fa-tachometer-alt" style="margin-right: 0.5rem; color: #4facfe;"></i>
+                    Dashboard - Visão Geral do Sistema
+                </h2>
+
+                <!-- Stats Grid -->
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-exclamation-triangle stat-icon"></i>
+                        <div class="stat-number">1,247</div>
+                        <div class="stat-label">Denúncias Recebidas</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-check-circle stat-icon"></i>
+                        <div class="stat-number">1,089</div>
+                        <div class="stat-label">Casos Resolvidos</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-seedling stat-icon"></i>
+                        <div class="stat-number">842</div>
+                        <div class="stat-label">Novos Plantios</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-clock stat-icon"></i>
+                        <div class="stat-number">3.2</div>
+                        <div class="stat-label">Dias (Tempo Médio)</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-brain stat-icon"></i>
+                        <div class="stat-number">97%</div>
+                        <div class="stat-label">Precisão da IA</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users stat-icon"></i>
+                        <div class="stat-number">15,679</div>
+                        <div class="stat-label">Usuários Ativos</div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="analysis-container">
+                    <div class="analysis-panel">
+                        <div class="panel-header">
+                            <i class="fas fa-chart-bar panel-icon"></i>
+                            <h3 class="panel-title">Tipos de Denúncias (Este Mês)</h3>
+                        </div>
+                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; color: white; background: rgba(255,255,255,0.05); border-radius: 12px;">
+                            📊 Gráfico de Barras Interativo
+                            <br><small>Árvores Podres: 35% | Galhos Perigosos: 28% | Árvores Caídas: 22% | Outros: 15%</small>
+                        </div>
+                    </div>
+
+                    <div class="analysis-panel">
+                        <div class="panel-header">
+                            <i class="fas fa-chart-pie panel-icon"></i>
+                            <h3 class="panel-title">Status dos Casos</h3>
+                        </div>
+                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; color: white; background: rgba(255,255,255,0.05); border-radius: 12px;">
+                            🍰 Gráfico de Pizza
+                            <br><small>Resolvidos: 67% | Em Andamento: 23% | Aguardando: 10%</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="analysis-panel">
+                    <div class="panel-header">
+                        <i class="fas fa-history panel-icon"></i>
+                        <h3 class="panel-title">Atividade Recente do Sistema</h3>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">🌳 Plantio Concluído - Rua das Palmeiras</div>
+                                <div class="timeline-time">Há 2 horas - Ipê Rosa plantado com sucesso</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">⚠️ Nova Denúncia de Emergência</div>
+                                <div class="timeline-time">Há 3 horas - Árvore caída na Av. Principal</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">🤖 IA Atualizada - Versão 2.1</div>
+                                <div class="timeline-time">Há 1 dia - Precisão aumentou para 97.3%</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">📱 App Mobile Lançado</div>
+                                <div class="timeline-time">Há 3 dias - Disponível na Play Store e App Store</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="analysis-panel">
+                    <div class="panel-header">
+                        <i class="fas fa-bolt panel-icon"></i>
+                        <h3 class="panel-title">Ações Rápidas</h3>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="switchTab('report')">
+                            <i class="fas fa-plus"></i>
+                            Nova Denúncia
+                        </button>
+                        <button class="btn btn-secondary" onclick="viewAllReports()">
+                            <i class="fas fa-list"></i>
+                            Ver Todas Denúncias
+                        </button>
+                        <button class="btn btn-secondary" onclick="generateReport()">
+                            <i class="fas fa-file-export"></i>
+                            Gerar Relatório
+                        </button>
+                        <button class="btn btn-secondary" onclick="manageTeam()">
+                            <i class="fas fa-users-cog"></i>
+                            Gerenciar Equipe
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="notification" id="notification"></div>
+
+    
+    <script src="./config.js"></script>
+       
