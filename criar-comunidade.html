@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raizia - Criar Postagem Comunidade</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 30px 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 25px;
+        padding: 40px;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #e0e0e0;
+      }
+
+      .back-btn {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: #f0f0f0;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+      }
+
+      .back-btn:hover {
+        background: #667eea;
+        color: white;
+        transform: scale(1.1);
+      }
+
+      .header-content {
+        flex: 1;
+      }
+
+      .header-content h1 {
+        color: #333;
+        font-size: 28px;
+        margin-bottom: 5px;
+      }
+
+      .header-content p {
+        color: #666;
+        font-size: 14px;
+      }
+
+      .badge-comunidade {
+        padding: 8px 20px;
+        background: #d1ecf1;
+        color: #0c5460;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .alert-info {
+        background: #d1ecf1;
+        border-left: 4px solid #17a2b8;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        color: #0c5460;
+      }
+
+      .alert-info i {
+        margin-right: 10px;
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+      }
+
+      .form-group label {
+        display: block;
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-size: 15px;
+      }
+
+      .required {
+        color: #e74c3c;
+      }
+
+      .form-input,
+      .form-textarea {
+        width: 100%;
+        padding: 14px 18px;
+        border: 2px solid #e0e0e0;
+        border-radius: 12px;
+        font-size: 15px;
+        font-family: inherit;
+        transition: all 0.3s;
+      }
+
+      .form-input:focus,
+      .form-textarea:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      .form-textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .image-upload {
+        border: 3px dashed #e0e0e0;
+        border-radius: 15px;
+        padding: 50px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s;
+        background: #f8f9fa;
+      }
+
+      .image-upload:hover {
+        border-color: #667eea;
+        background: #f0f4ff;
+      }
+
+      .image-upload i {
+        font-size: 64px;
+        color: #667eea;
+        margin-bottom: 20px;
+      }
+
+      .image-upload p {
+        color: #666;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+      .image-upload small {
+        color: #999;
+        font-size: 13px;
+      }
+
+      .image-preview {
+        display: none;
+        margin-top: 20px;
+      }
+
+      .image-preview.active {
+        display: block;
+      }
+
+      .image-preview img {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .address-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+
+      .address-grid .full-width {
+        grid-column: 1 / -1;
+      }
+
+      .map-container {
+        width: 100%;
+        height: 300px;
+        background: #e0e0e0;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #999;
+        margin-top: 15px;
+      }
+
+      .map-container i {
+        font-size: 48px;
+      }
+
+      .hashtags-section {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 25px;
+      }
+
+      .hashtags-section h4 {
+        color: #333;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .hashtag-suggestions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .hashtag-chip {
+        padding: 8px 16px;
+        background: white;
+        border: 2px solid #e0e0e0;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .hashtag-chip:hover {
+        border-color: #667eea;
+        color: #667eea;
+      }
+
+      .hashtag-chip.selected {
+        background: #667eea;
+        color: white;
+        border-color: #667eea;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 18px;
+        background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+        color: white;
+        border: none;
+        border-radius: 15px;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-top: 30px;
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 35px rgba(23, 162, 184, 0.4);
+      }
+
+      .privacy-section {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 20px;
+      }
+
+      .privacy-section h4 {
+        color: #333;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .privacy-options {
+        display: flex;
+        gap: 15px;
+      }
+
+      .privacy-option {
+        flex: 1;
+        padding: 15px;
+        background: white;
+        border: 2px solid #e0e0e0;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-align: center;
+      }
+
+      .privacy-option:hover {
+        border-color: #667eea;
+      }
+
+      .privacy-option.selected {
+        border-color: #667eea;
+        background: #f0f4ff;
+      }
+
+      .privacy-option i {
+        font-size: 24px;
+        color: #667eea;
+        margin-bottom: 8px;
+      }
+
+      .privacy-option h5 {
+        color: #333;
+        margin-bottom: 5px;
+      }
+
+      .privacy-option p {
+        color: #666;
+        font-size: 12px;
+      }
+
+      @media (max-width: 768px) {
+        .address-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .privacy-options {
+          flex-direction: column;
+        }
+
+        .container {
+          padding: 25px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <button class="back-btn" onclick="window.location.href='index.html'">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="header-content">
+          <h1>Nova Postagem da Comunidade</h1>
+          <p>Compartilhe fotos e experiências sobre árvores</p>
+        </div>
+        <span class="badge-comunidade"
+          ><i class="fas fa-users"></i> Comunidade</span
+        >
+      </div>
+
+      <div class="alert-info">
+        <i class="fas fa-heart"></i>
+        <strong>Compartilhe momentos!</strong> Use esta seção para postar fotos
+        bonitas de árvores, compartilhar experiências e celebrar a natureza.
+      </div>
+
+      <form id="comunidadeForm" onsubmit="handleSubmit(event)">
+        <!-- Nome da Postagem -->
+        <div class="form-group">
+          <label for="postTitle"
+            >Título da Postagem <span class="required">*</span></label
+          >
+          <input
+            type="text"
+            id="postTitle"
+            class="form-input"
+            placeholder="Ex: Ipê Amarelo Florescendo na Praça"
+            required
+          />
+        </div>
+
+        <!-- Descrição -->
+        <div class="form-group">
+          <label for="postDescription"
+            >Descrição <span class="required">*</span></label
+          >
+          <textarea
+            id="postDescription"
+            class="form-textarea"
+            placeholder="Conte sua história, compartilhe suas experiências ou descreva a beleza que você encontrou..."
+            required
+          ></textarea>
+        </div>
+
+        <!-- Nome da Pessoa (Auto-preenchido) -->
+        <div class="form-group">
+          <label for="userName">Autor da Postagem</label>
+          <input
+            type="text"
+            id="userName"
+            class="form-input"
+            value="João Silva"
+            readonly
+            style="background: #f0f0f0"
+          />
+        </div>
+
+        <!-- Upload de Imagem -->
+        <div class="form-group">
+          <label>Foto <span class="required">*</span></label>
+          <div
+            class="image-upload"
+            onclick="document.getElementById('imageInput').click()"
+          >
+            <i class="fas fa-image"></i>
+            <p>Clique para fazer upload da sua foto</p>
+            <small>PNG, JPG ou JPEG (máx. 10MB)</small>
+            <input
+              type="file"
+              id="imageInput"
+              accept="image/*"
+              style="display: none"
+              onchange="previewImage(event)"
+              required
+            />
+          </div>
+          <div class="image-preview" id="imagePreview">
+            <img id="previewImg" src="" alt="Preview" />
+          </div>
+        </div>
+
+        <!-- Localização (Opcional) -->
+        <div class="form-group">
+          <label>
+            Localização (Opcional)
+            <small style="font-weight: normal; color: #999; margin-left: 10px">
+              <i class="fas fa-info-circle"></i> Adicione onde a foto foi tirada
+            </small>
+          </label>
+          <div class="address-grid">
+            <input
+              type="text"
+              id="street"
+              class="form-input full-width"
+              placeholder="Rua/Avenida (opcional)"
+            />
+            <input
+              type="text"
+              id="neighborhood"
+              class="form-input"
+              placeholder="Bairro"
+            />
+            <input
+              type="text"
+              id="city"
+              class="form-input"
+              placeholder="Cidade"
+            />
+            <input
+              type="text"
+              id="state"
+              class="form-input"
+              placeholder="Estado"
+            />
+            <input
+              type="text"
+              id="postalCode"
+              class="form-input"
+              placeholder="CEP"
+            />
+            <input
+              type="text"
+              id="latitude"
+              class="form-input"
+              placeholder="Latitude"
+            />
+            <input
+              type="text"
+              id="longitude"
+              class="form-input"
+              placeholder="Longitude"
+            />
+          </div>
+          <div class="map-container" id="mapContainer" style="display: none">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+        </div>
+
+        <!-- Hashtags -->
+        <div class="hashtags-section">
+          <h4>
+            <i class="fas fa-hashtag"></i>
+            Hashtags Sugeridas
+          </h4>
+          <p style="color: #666; font-size: 14px; margin-bottom: 15px">
+            Selecione hashtags para aumentar o alcance da sua postagem
+          </p>
+          <div class="hashtag-suggestions">
+            <div class="hashtag-chip" onclick="toggleHashtag(this)">
+              #ÁrvoresBrasil
+            </div>
+            <div class="hashtag-chip" onclick="toggleHashtag(this)">
+              #NaturezaUrbana
+            </div>
+            <div class="hashtag-chip" onclick="toggleHashtag(this)">
+              #Arborização
+            </div>
+            <div class="hashtag-chip" onclick="toggleHashtag(this)">
+              #MeioAmbiente
+            </div>
+            <div class="hashtag-chip" onclick="toggleHashtag(this)">
+              #Sustentabilidade
+            </div>
+            <div class="hashtag-chip" onclick="toggleHashtag(this)">#Verde</div>
+            <div class="hashtag-chip" onclick="toggleHashtag(this)">
+              #Ecologia
+            </div>
+            <div class="hashtag-chip" onclick="toggleHashtag(this)">
+              #Natureza
+            </div>
+            <div class="hashtag-chip" onclick="toggleHashtag(this)">
+              #FlorestasUrbanas
+            </div>
+            <div class="hashtag-chip" onclick="toggleHashtag(this)">
+              #Biodiversidade
+            </div>
+          </div>
+        </div>
+
+        <!-- Privacidade -->
+        <div class="privacy-section">
+          <h4>
+            <i class="fas fa-lock"></i>
+            Configurações de Privacidade
+          </h4>
+          <div class="privacy-options">
+            <div
+              class="privacy-option selected"
+              onclick="selectPrivacy(this, 'public')"
+            >
+              <i class="fas fa-globe"></i>
+              <h5>Público</h5>
+              <p>Todos podem ver</p>
+            </div>
+            <div
+              class="privacy-option"
+              onclick="selectPrivacy(this, 'friends')"
+            >
+              <i class="fas fa-user-friends"></i>
+              <h5>Amigos</h5>
+              <p>Apenas seus amigos</p>
+            </div>
+            <div
+              class="privacy-option"
+              onclick="selectPrivacy(this, 'private')"
+            >
+              <i class="fas fa-lock"></i>
+              <h5>Privado</h5>
+              <p>Apenas você</p>
+            </div>
+          </div>
+          <input type="hidden" id="privacyLevel" value="public" />
+        </div>
+
+        <!-- Botão Publicar -->
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-paper-plane"></i> Publicar na Comunidade
+        </button>
+      </form>
+    </div>
+
+    <script src="./src/js/criar-comunidade.js"></script>
+  </body>
+</html>

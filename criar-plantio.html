@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raizia - Criar Plantio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./src/css/plantio.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <button class="back-btn" onclick="window.location.href='index.html'">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="header-content">
+          <h1>Nova Postagem de Plantio</h1>
+          <p>Cadastre locais adequados para plantio de árvores</p>
+        </div>
+        <span class="badge-plantio"
+          ><i class="fas fa-seedling"></i> Plantio</span
+        >
+      </div>
+
+      <form id="plantioForm" onsubmit="handleSubmit(event)">
+        <!-- Nome da Postagem -->
+        <div class="form-group">
+          <label for="postTitle"
+            >Nome da Postagem <span class="required">*</span></label
+          >
+          <input
+            type="text"
+            id="postTitle"
+            class="form-input"
+            placeholder="Ex: Área Perfeita para Reflorestamento no Parque Central"
+            required
+          />
+        </div>
+
+        <!-- Sobre o Assunto -->
+        <div class="form-group">
+          <label for="postDescription"
+            >Sobre o Assunto <span class="required">*</span></label
+          >
+          <textarea
+            id="postDescription"
+            class="form-textarea"
+            placeholder="Descreva o local, condições do solo, disponibilidade de água, etc."
+            required
+          ></textarea>
+        </div>
+
+        <!-- Nome da Pessoa (Auto-preenchido) -->
+        <div class="form-group">
+          <label for="userName">Nome do Responsável</label>
+          <input
+            type="text"
+            id="userName"
+            class="form-input"
+            value="João Silva"
+            readonly
+            style="background: #f0f0f0"
+          />
+        </div>
+
+        <!-- Upload de Imagem -->
+        <div class="form-group">
+          <label>Imagem do Local <span class="required">*</span></label>
+          <div
+            class="image-upload"
+            onclick="document.getElementById('imageInput').click()"
+          >
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>Clique para fazer upload da imagem</p>
+            <small>PNG, JPG ou JPEG (máx. 5MB)</small>
+            <input
+              type="file"
+              id="imageInput"
+              accept="image/*"
+              style="display: none"
+              onchange="previewImage(event)"
+              required
+            />
+          </div>
+          <div class="image-preview" id="imagePreview">
+            <img id="previewImg" src="" alt="Preview" />
+          </div>
+        </div>
+
+        <!-- Endereço -->
+        <div class="form-group">
+          <label>Endereço do Local <span class="required">*</span></label>
+          <div class="address-grid">
+            <input
+              type="text"
+              id="street"
+              class="form-input full-width"
+              placeholder="Rua/Avenida"
+              required
+            />
+            <input
+              type="text"
+              id="neighborhood"
+              class="form-input"
+              placeholder="Bairro"
+              required
+            />
+            <input
+              type="text"
+              id="city"
+              class="form-input"
+              placeholder="Cidade"
+              required
+            />
+            <input
+              type="text"
+              id="state"
+              class="form-input"
+              placeholder="Estado"
+              required
+            />
+            <input
+              type="text"
+              id="postalCode"
+              class="form-input"
+              placeholder="CEP"
+            />
+            <input
+              type="text"
+              id="latitude"
+              class="form-input"
+              placeholder="Latitude"
+              required
+            />
+            <input
+              type="text"
+              id="longitude"
+              class="form-input"
+              placeholder="Longitude"
+              required
+            />
+          </div>
+          <div class="map-container">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+        </div>
+
+        <!-- Seção IA -->
+        <div class="ai-section">
+          <h3>
+            <i class="fas fa-robot"></i>
+            Modelo de Relatório sobre Plantio Raizia
+          </h3>
+          <p style="color: #666; margin-bottom: 15px">
+            Gere automaticamente um relatório profissional com base nas
+            informações fornecidas.
+          </p>
+          <button type="button" class="generate-btn" onclick="generateReport()">
+            <i class="fas fa-magic"></i>
+            Gerar Modelo com IA
+          </button>
+          <div class="ai-output" id="aiOutput">
+            <strong>Relatório Gerado:</strong><br /><br />
+            <p id="reportContent"></p>
+          </div>
+          <a
+            href="#"
+            class="external-link"
+            id="continueLink"
+            style="display: none"
+          >
+            <i class="fas fa-external-link-alt"></i>
+            Clique aqui para prosseguir seu relatório
+          </a>
+        </div>
+
+        <!-- URL da Denúncia -->
+        <div class="form-group">
+          <label for="reportUrl"
+            >Insira a URL da Denúncia <span class="required">*</span></label
+          >
+          <input
+            type="url"
+            id="reportUrl"
+            class="form-input"
+            placeholder="https://exemplo.com/denuncia/12345"
+            required
+          />
+          <small style="color: #666; font-size: 13px">
+            <i class="fas fa-info-circle"></i> Campo obrigatório - Link para o
+            relatório oficial
+          </small>
+        </div>
+
+        <!-- Workflow Status -->
+        <div class="form-group">
+          <label>Status do Workflow</label>
+          <div class="workflow-status">
+            <i class="fas fa-lock"></i>
+            Não Resolvido (padrão - pode ser alterado no perfil após publicação)
+          </div>
+        </div>
+
+        <!-- Botão Publicar -->
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-paper-plane"></i> Publicar Plantio
+        </button>
+      </form>
+    </div>
+
+    <script src="./src/js/plantio.js"></script>
+  </body>
+</html>

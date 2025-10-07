@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raizia - Login e Registro</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <i class="fas fa-tree"></i>
+        <h1>Raizia</h1>
+        <p>Conectando pessoas e natureza</p>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active" onclick="switchTab('login')">Entrar</div>
+        <div class="tab" onclick="switchTab('register')">Registrar</div>
+      </div>
+
+      <!-- Login Form -->
+      <div class="form-container active" id="loginForm">
+        <form onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label for="loginEmail">E-mail</label>
+            <div class="input-wrapper">
+              <i class="fas fa-envelope"></i>
+              <input
+                type="email"
+                id="loginEmail"
+                class="form-input"
+                placeholder="seu@email.com"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="loginPassword">Senha</label>
+            <div class="input-wrapper">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="loginPassword"
+                class="form-input"
+                placeholder="••••••••"
+                required
+              />
+              <i
+                class="fas fa-eye password-toggle"
+                onclick="togglePassword('loginPassword', this)"
+              ></i>
+            </div>
+          </div>
+
+          <div class="forgot-password">
+            <a href="#">Esqueceu a senha?</a>
+          </div>
+
+          <button type="submit" class="submit-btn">Entrar</button>
+        </form>
+
+        <div class="divider">
+          <span>ou continue com</span>
+        </div>
+
+        <div class="social-login">
+          <button class="social-btn">
+            <i class="fab fa-google" style="color: #db4437"></i>
+            Google
+          </button>
+          <button class="social-btn">
+            <i class="fab fa-facebook-f" style="color: #4267b2"></i>
+            Facebook
+          </button>
+        </div>
+      </div>
+
+      <!-- Register Form -->
+      <div class="form-container" id="registerForm">
+        <form onsubmit="handleRegister(event)">
+          <div class="form-group">
+            <label for="registerName">Nome Completo</label>
+            <div class="input-wrapper">
+              <i class="fas fa-user"></i>
+              <input
+                type="text"
+                id="registerName"
+                class="form-input"
+                placeholder="Seu nome"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="registerEmail">E-mail</label>
+            <div class="input-wrapper">
+              <i class="fas fa-envelope"></i>
+              <input
+                type="email"
+                id="registerEmail"
+                class="form-input"
+                placeholder="seu@email.com"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="registerPassword">Senha</label>
+            <div class="input-wrapper">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="registerPassword"
+                class="form-input"
+                placeholder="••••••••"
+                required
+              />
+              <i
+                class="fas fa-eye password-toggle"
+                onclick="togglePassword('registerPassword', this)"
+              ></i>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="registerConfirmPassword">Confirmar Senha</label>
+            <div class="input-wrapper">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="registerConfirmPassword"
+                class="form-input"
+                placeholder="••••••••"
+                required
+              />
+              <i
+                class="fas fa-eye password-toggle"
+                onclick="togglePassword('registerConfirmPassword', this)"
+              ></i>
+            </div>
+          </div>
+
+          <div class="terms">
+            Ao se registrar, você concorda com nossos
+            <a href="#">Termos de Uso</a> e
+            <a href="#">Política de Privacidade</a>
+          </div>
+
+          <button type="submit" class="submit-btn">Criar Conta</button>
+        </form>
+
+        <div class="divider">
+          <span>ou registre-se com</span>
+        </div>
+
+        <div class="social-login">
+          <button class="social-btn">
+            <i class="fab fa-google" style="color: #db4437"></i>
+            Google
+          </button>
+          <button class="social-btn">
+            <i class="fab fa-facebook-f" style="color: #4267b2"></i>
+            Facebook
+          </button>
+        </div>
+      </div>
+
+      <div class="back-home">
+        <a href="index.html"
+          ><i class="fas fa-arrow-left"></i> Voltar para Home</a
+        >
+      </div>
+    </div>
+
+    <script src="./src/js/login.js"></script>
+  </body>
+</html>

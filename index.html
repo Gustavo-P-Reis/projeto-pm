@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raizia - Rede Social de Árvores</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./src/css/style.css">
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <i class="fas fa-tree"></i>
+        <span>Raizia</span>
+      </div>
+      <a href="#" class="menu-item active">
+        <i class="fas fa-home"></i>
+        <span>Início</span>
+      </a>
+      <a href="#" class="menu-item">
+        <i class="fas fa-bell"></i>
+        <span>Notificações</span>
+      </a>
+      <a href="#" class="menu-item">
+        <i class="fas fa-user"></i>
+        <span>Perfil</span>
+      </a>
+      <a href="#" class="menu-item">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </a>
+      <a href="#" class="menu-item">
+        <i class="fas fa-ellipsis-h"></i>
+        <span>Sobre</span>
+      </a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <div class="header">
+        <h1>Bem-vindo ao Raizia</h1>
+        <div class="auth-buttons">
+          <a href="login.html" class="btn btn-secondary">Entrar</a>
+          <a href="login.html" class="btn btn-primary">Registrar</a>
+        </div>
+      </div>
+
+      <!-- Create Post -->
+      <div class="create-post">
+        <input
+          type="text"
+          class="create-post-input"
+          placeholder="O que você quer compartilhar?"
+          id="createPostInput"
+        />
+
+        <div class="post-type-selector" id="postTypeSelector">
+          <h3 style="color: #333; margin-bottom: 10px">
+            Escolha o tipo de postagem:
+          </h3>
+          <div class="post-type-option" onclick="selectPostType('comunidade')">
+            <h3><i class="fas fa-users"></i> Comunidade</h3>
+            <p>Compartilhe fotos e experiências sobre árvores em geral</p>
+          </div>
+          <div class="post-type-option" onclick="selectPostType('plantio')">
+            <h3><i class="fas fa-seedling"></i> Plantio</h3>
+            <p>Cadastre locais adequados para plantio de árvores</p>
+          </div>
+          <div class="post-type-option" onclick="selectPostType('denuncia')">
+            <h3><i class="fas fa-exclamation-triangle"></i> Denúncia</h3>
+            <p>Reporte problemas com árvores que necessitam atenção</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Posts Feed -->
+      <div class="posts-feed" id="postsFeed">
+        <!-- Post Example 1 - Plantio -->
+        <div class="post-card">
+          <div class="post-header">
+            <div class="post-user">
+              <div class="user-avatar">JS</div>
+              <div class="user-info">
+                <h3>João Silva</h3>
+                <p>Há 2 horas</p>
+              </div>
+            </div>
+            <span class="post-badge badge-plantio">Plantio</span>
+          </div>
+          <div class="post-content">
+            <h2>Área Perfeita para Reflorestamento no Parque Central</h2>
+            <p>
+              Encontrei este local amplo e ensolarado no Parque Central que
+              seria ideal para o plantio de árvores nativas. O solo está em boas
+              condições e há disponibilidade de água próxima.
+            </p>
+            <div class="post-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Parque Central, Centro - São Paulo, SP</span>
+            </div>
+            <span class="workflow-status status-nao-resolvido">
+              <i class="fas fa-clock"></i>
+              Não Resolvido
+            </span>
+          </div>
+          <div class="post-media">
+            <img
+              src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500"
+              alt="Área de plantio"
+              class="post-image"
+            />
+            <div class="post-map">
+              <i class="fas fa-map" style="font-size: 48px"></i>
+            </div>
+          </div>
+          <div class="post-actions">
+            <button class="action-btn" onclick="toggleLike(this)">
+              <i class="far fa-heart"></i>
+              <span>234</span>
+            </button>
+            <button class="action-btn">
+              <i class="far fa-comment"></i>
+              <span>45</span>
+            </button>
+            <button class="action-btn">
+              <i class="fas fa-share"></i>
+              <span>Compartilhar</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Post Example 2 - Denúncia -->
+        <div class="post-card">
+          <div class="post-header">
+            <div class="post-user">
+              <div class="user-avatar">MA</div>
+              <div class="user-info">
+                <h3>Maria Almeida</h3>
+                <p>Há 5 horas</p>
+              </div>
+            </div>
+            <span class="post-badge badge-denuncia">Denúncia</span>
+          </div>
+          <div class="post-content">
+            <h2>Árvore Caída Bloqueando Calçada</h2>
+            <p>
+              Uma árvore de grande porte caiu durante a tempestade de ontem e
+              está bloqueando completamente a calçada. A situação representa
+              risco para pedestres.
+            </p>
+            <div class="post-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Rua das Flores, 456 - Jardim Botânico, SP</span>
+            </div>
+            <div style="display: flex; gap: 15px; margin: 10px 0">
+              <span
+                style="
+                  background: #fee;
+                  color: #c00;
+                  padding: 5px 12px;
+                  border-radius: 15px;
+                  font-size: 13px;
+                  font-weight: 600;
+                "
+              >
+                <i class="fas fa-exclamation-circle"></i> Urgência: Alta
+              </span>
+              <span
+                style="
+                  background: #f0f0f0;
+                  color: #666;
+                  padding: 5px 12px;
+                  border-radius: 15px;
+                  font-size: 13px;
+                "
+              >
+                Ontem
+              </span>
+            </div>
+            <span class="workflow-status status-progresso">
+              <i class="fas fa-spinner"></i>
+              Em Progresso
+            </span>
+          </div>
+          <div class="post-media">
+            <img
+              src="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?w=500"
+              alt="Árvore caída"
+              class="post-image"
+            />
+            <div class="post-map">
+              <i class="fas fa-map" style="font-size: 48px"></i>
+            </div>
+          </div>
+          <div class="post-actions">
+            <button class="action-btn liked" onclick="toggleLike(this)">
+              <i class="fas fa-heart"></i>
+              <span>512</span>
+            </button>
+            <button class="action-btn">
+              <i class="far fa-comment"></i>
+              <span>89</span>
+            </button>
+            <button class="action-btn">
+              <i class="fas fa-share"></i>
+              <span>Compartilhar</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Post Example 3 - Comunidade -->
+        <div class="post-card">
+          <div class="post-header">
+            <div class="post-user">
+              <div class="user-avatar">PC</div>
+              <div class="user-info">
+                <h3>Pedro Costa</h3>
+                <p>Há 1 dia</p>
+              </div>
+            </div>
+            <span class="post-badge badge-comunidade">Comunidade</span>
+          </div>
+          <div class="post-content">
+            <h2>Ipê Amarelo Florescendo na Praça</h2>
+            <p>
+              Que espetáculo! O ipê amarelo da praça está completamente florido.
+              Vale a pena visitar para apreciar essa beleza natural.
+            </p>
+            <div class="post-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Praça da Liberdade - Centro, SP</span>
+            </div>
+          </div>
+          <div class="post-media">
+            <img
+              src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=500"
+              alt="Ipê amarelo"
+              class="post-image"
+            />
+            <div class="post-map">
+              <i class="fas fa-map" style="font-size: 48px"></i>
+            </div>
+          </div>
+          <div class="post-actions">
+            <button class="action-btn" onclick="toggleLike(this)">
+              <i class="far fa-heart"></i>
+              <span>892</span>
+            </button>
+            <button class="action-btn">
+              <i class="far fa-comment"></i>
+              <span>134</span>
+            </button>
+            <button class="action-btn">
+              <i class="fas fa-share"></i>
+              <span>Compartilhar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./src/js/index.js"></script>
+  </body>
+</html>
