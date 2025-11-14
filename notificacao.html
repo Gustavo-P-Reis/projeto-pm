@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raizia - Sistema de Notificações</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./src/css/notificacao.css" />
+  </head>
+  <body>
+    <!-- Notification Overlay -->
+    <div
+      class="notification-overlay"
+      id="notificationOverlay"
+      onclick="closeNotifications()"
+    ></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <i class="fas fa-tree"></i>
+        <span>Raizia</span>
+      </div>
+      <a href="index.html" class="menu-item">
+        <i class="fas fa-home"></i>
+        <span>Início</span>
+      </a>
+      <a
+        href="#"
+        class="menu-item active"
+        id="notificationBtn"
+        onclick="toggleNotifications()"
+      >
+        <i class="fas fa-bell"></i>
+        <span>Notificações</span>
+        <span class="notification-badge" id="notificationBadge">5</span>
+      </a>
+      <a href="perfil.html" class="menu-item">
+        <i class="fas fa-user"></i>
+        <span>Perfil</span>
+      </a>
+      <a href="#" class="menu-item">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </a>
+      <a href="#" class="menu-item">
+        <i class="fas fa-ellipsis-h"></i>
+        <span>Sobre</span>
+      </a>
+    </div>
+
+    <!-- Notification Popup -->
+    <div class="notification-popup" id="notificationPopup">
+      <div class="notification-header">
+        <h3>
+          <i class="fas fa-bell"></i>
+          Notificações
+        </h3>
+        <button class="mark-all-read" onclick="markAllAsRead()">
+          <i class="fas fa-check-double"></i> Marcar todas como lidas
+        </button>
+      </div>
+      <div class="notification-list" id="notificationList">
+        <!-- Notificações serão inseridas aqui -->
+      </div>
+      <div class="notification-footer">
+        <a href="#" class="view-all-link">Ver todas as notificações</a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="header">
+        <h1>Sistema de Notificações</h1>
+      </div>
+
+      <div class="demo-card">
+        <h2>🔔 Como Funciona</h2>
+        <p>
+          Clique no ícone de <strong>notificações</strong> na barra lateral para
+          abrir o painel de notificações. Você verá:
+        </p>
+        <ul style="color: #666; line-height: 2; margin-bottom: 20px">
+          <li>✨ Badge com número de notificações não lidas</li>
+          <li>💙 Curtidas nas suas postagens</li>
+          <li>💬 Comentários recebidos</li>
+          <li>🔄 Mudanças de status em plantios e denúncias</li>
+          <li>👥 Novas pessoas seguindo você</li>
+          <li>📢 Menções e marcações</li>
+          <li>⚙️ Notificações do sistema</li>
+        </ul>
+
+        <h2 style="margin-top: 30px">🎨 Recursos</h2>
+        <ul style="color: #666; line-height: 2; margin-bottom: 20px">
+          <li>📍 Notificações não lidas destacadas em azul</li>
+          <li>⏰ Tempo relativo (há 5 minutos, há 1 hora, etc)</li>
+          <li>🎯 Ícones coloridos para cada tipo de notificação</li>
+          <li>✅ Marcar todas como lidas com um clique</li>
+          <li>🔒 Fecha ao clicar fora do balão</li>
+        </ul>
+
+        <button class="demo-btn" onclick="addDemoNotification()">
+          <i class="fas fa-plus"></i> Adicionar Notificação de Teste
+        </button>
+      </div>
+    </div>
+
+    <script src="./src/js/notificacao.js"></script>
+  </body>
+</html>

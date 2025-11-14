@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raizia - Meu Perfil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./src/css/perfil-do-usuario.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-tree"></i>
+            <span>Raizia</span>
+        </div>
+        <a href="index.html" class="menu-item">
+            <i class="fas fa-home"></i>
+            <span>Início</span>
+        </a>
+        <a href="#" class="menu-item">
+            <i class="fas fa-bell"></i>
+            <span>Notificações</span>
+        </a>
+        <a href="perfil.html" class="menu-item active">
+            <i class="fas fa-user"></i>
+            <span>Perfil</span>
+        </a>
+        <a href="#" class="menu-item">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+        </a>
+        <a href="#" class="menu-item">
+            <i class="fas fa-ellipsis-h"></i>
+            <span>Sobre</span>
+        </a>
+    </div>
+    <div class="main-content">
+        <div class="profile-header">
+            <div class="profile-cover">
+                <button class="profile-cover-edit">
+                    <i class="fas fa-camera"></i> Alterar Capa
+                </button>
+            </div>
+            <div class="profile-info">
+                <div class="profile-avatar-container">
+                    <div class="profile-avatar">JS</div>
+                    <div class="avatar-edit">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                </div>
+                <div class="profile-details">
+                    <div class="profile-name-section">
+                        <h1>João Silva</h1>
+                        <p class="profile-username">@joaosilva</p>
+                        <p class="profile-bio">
+                            🌳 Apaixonado por natureza e sustentabilidade | Defensor das árvores urbanas | 
+                            Compartilhando experiências verdes 🌿
+                        </p>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">47</div>
+                                <div class="stat-label">Postagens</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">1.2K</div>
+                                <div class="stat-label">Curtidas</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">15</div>
+                                <div class="stat-label">Denúncias</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">8</div>
+                                <div class="stat-label">Plantios</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="edit-profile-btn" onclick="openEditModal()">
+                        <i class="fas fa-edit"></i> Editar Perfil
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Tabs -->
+        <div class="profile-tabs">
+            <button class="tab-btn active" onclick="switchTab('posts')">
+                <i class="fas fa-th-large"></i>
+                <span>Todas Postagens</span>
+            </button>
+            <button class="tab-btn" onclick="switchTab('plantio')">
+                <i class="fas fa-seedling"></i>
+                <span>Plantios</span>
+            </button>
+            <button class="tab-btn" onclick="switchTab('denuncia')">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>Denúncias</span>
+            </button>
+            <button class="tab-btn" onclick="switchTab('comunidade')">
+                <i class="fas fa-users"></i>
+                <span>Comunidade</span>
+            </button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content active" id="postsTab">
+            <div class="posts-grid">
+                <!-- Post 1 - Plantio -->
+                <div class="post-card">
+                    <div class="post-card-header">
+                        <span class="post-badge badge-plantio">Plantio</span>
+                        <i class="fas fa-ellipsis-v post-menu"></i>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500" alt="Post" class="post-image">
+                    <h3 class="post-title">Área para Reflorestamento</h3>
+                    <p class="post-description">Local perfeito identificado no Parque Central com condições ideais para plantio de árvores nativas.</p>
+                    <div class="workflow-status status-nao-resolvido">
+                        <i class="fas fa-clock"></i>
+                        Não Resolvido
+                    </div>
+                    <button class="edit-status-btn" onclick="openStatusModal(this)">
+                        <i class="fas fa-edit"></i> Alterar Status
+                    </button>
+                    <div class="post-stats">
+                        <span class="post-stat"><i class="fas fa-heart"></i> 234</span>
+                        <span class="post-stat"><i class="fas fa-comment"></i> 45</span>
+                    </div>
+                </div>
+
+                <!-- Post 2 - Denúncia -->
+                <div class="post-card">
+                    <div class="post-card-header">
+                        <span class="post-badge badge-denuncia">Denúncia</span>
+                        <i class="fas fa-ellipsis-v post-menu"></i>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?w=500" alt="Post" class="post-image">
+                    <h3 class="post-title">Árvore Caída Bloqueando Via</h3>
+                    <p class="post-description">Árvore de grande porte caiu durante tempestade e necessita remoção urgente.</p>
+                    <div class="workflow-status status-progresso">
+                        <i class="fas fa-spinner"></i>
+                        Em Progresso
+                    </div>
+                    <button class="edit-status-btn" onclick="openStatusModal(this)">
+                        <i class="fas fa-edit"></i> Alterar Status
+                    </button>
+                    <div class="post-stats">
+                        <span class="post-stat"><i class="fas fa-heart"></i> 512</span>
+                        <span class="post-stat"><i class="fas fa-comment"></i> 89</span>
+                    </div>
+                </div>
+
+                <!-- Post 3 - Comunidade -->
+                <div class="post-card">
+                    <div class="post-card-header">
+                        <span class="post-badge badge-comunidade">Comunidade</span>
+                        <i class="fas fa-ellipsis-v post-menu"></i>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=500" alt="Post" class="post-image">
+                    <h3 class="post-title">Ipê Amarelo Florescendo</h3>
+                    <p class="post-description">Espetáculo da natureza! Ipê completamente florido na Praça da Liberdade.</p>
+                    <div class="post-stats">
+                        <span class="post-stat"><i class="fas fa-heart"></i> 892</span>
+                        <span class="post-stat"><i class="fas fa-comment"></i> 134</span>
+                    </div>
+                </div>
+
+                <!-- Post 4 - Plantio Resolvido -->
+                <div class="post-card">
+                    <div class="post-card-header">
+                        <span class="post-badge badge-plantio">Plantio</span>
+                        <i class="fas fa-ellipsis-v post-menu"></i>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=500" alt="Post" class="post-image">
+                    <h3 class="post-title">Plantio de Mudas Realizado</h3>
+                    <p class="post-description">Plantio concluído com sucesso! 20 mudas de árvores nativas foram plantadas.</p>
+                    <div class="workflow-status status-resolvido">
+                        <i class="fas fa-check-circle"></i>
+                        Resolvido
+                    </div>
+                    <button class="edit-status-btn" onclick="openStatusModal(this)">
+                        <i class="fas fa-edit"></i> Alterar Status
+                    </button>
+                    <div class="post-stats">
+                        <span class="post-stat"><i class="fas fa-heart"></i> 1.5K</span>
+                        <span class="post-stat"><i class="fas fa-comment"></i> 203</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="plantioTab">
+            <div class="posts-grid">
+                <!-- Apenas posts de plantio -->
+            </div>
+        </div>
+
+        <div class="tab-content" id="denunciaTab">
+            <div class="posts-grid">
+                <!-- Apenas denúncias -->
+            </div>
+        </div>
+
+        <div class="tab-content" id="comunidadeTab">
+            <div class="posts-grid">
+                <!-- Apenas posts de comunidade -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Editar Perfil</h2>
+                <button class="close-modal" onclick="closeEditModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form onsubmit="saveProfile(event)">
+                <div class="form-group">
+                    <label>Nome Completo</label>
+                    <input type="text" class="form-input" value="João Silva" id="editName">
+                </div>
+                <div class="form-group">
+                    <label>Nome de Usuário</label>
+                    <input type="text" class="form-input" value="joaosilva" id="editUsername">
+                </div>
+                <div class="form-group">
+                    <label>Bio</label>
+                    <textarea class="form-textarea" id="editBio">🌳 Apaixonado por natureza e sustentabilidade | Defensor das árvores urbanas | Compartilhando experiências verdes 🌿</textarea>
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" class="form-input" value="joao.silva@email.com" id="editEmail">
+                </div>
+                <div class="form-group">
+                    <label>Localização</label>
+                    <input type="text" class="form-input" value="São Paulo, SP" id="editLocation">
+                </div>
+                <button type="submit" class="save-btn">
+                    <i class="fas fa-save"></i> Salvar Alterações
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Change Status Modal -->
+    <div class="modal" id="statusModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Alterar Status do Workflow</h2>
+                <button class="close-modal" onclick="closeStatusModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="status-options">
+                <div class="status-option" onclick="changeStatus('nao-resolvido')">
+                    <i class="fas fa-clock" style="color: #ffc107;"></i>
+                    <div class="status-option-content">
+                        <h4>Não Resolvido</h4>
+                        <p>O problema ainda não foi solucionado</p>
+                    </div>
+                </div>
+                <div class="status-option" onclick="changeStatus('progresso')">
+                    <i class="fas fa-spinner" style="color: #17a2b8;"></i>
+                    <div class="status-option-content">
+                        <h4>Em Progresso</h4>
+                        <p>O trabalho está sendo realizado</p>
+                    </div>
+                </div>
+                <div class="status-option" onclick="changeStatus('resolvido')">
+                    <i class="fas fa-check-circle" style="color: #28a745;"></i>
+                    <div class="status-option-content">
+                        <h4>Resolvido</h4>
+                        <p>O problema foi completamente solucionado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./src/js/perfil-do-usuario.js"></script>
+</body>
+</html>
