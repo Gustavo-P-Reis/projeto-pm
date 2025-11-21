@@ -1,0 +1,224 @@
+/* ============================================
+   LOGIN - RESPONSIVIDADE
+   Arquivo CSS para media queries da página de login
+   ============================================ */
+
+/* Tablet e dispositivos médios (768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 35px 25px;
+        max-width: 500px;
+    }
+
+    .logo i {
+        font-size: 55px;
+    }
+
+    .logo h1 {
+        font-size: 30px;
+    }
+
+    .logo p {
+        font-size: 13px;
+    }
+
+    .tabs {
+        margin-bottom: 25px;
+    }
+
+    .tab {
+        font-size: 14px;
+        padding: 11px;
+    }
+
+    .form-input {
+        padding: 13px 43px;
+    }
+
+    .submit-btn {
+        padding: 14px;
+    }
+}
+
+/* Smartphones (480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 30px 20px;
+        max-width: 100%;
+    }
+
+    .logo i {
+        font-size: 50px;
+        margin-bottom: 12px;
+    }
+
+    .logo h1 {
+        font-size: 28px;
+        margin-bottom: 6px;
+    }
+
+    .logo p {
+        font-size: 12px;
+    }
+
+    .tabs {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .tab {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .form-group label {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    .form-input {
+        padding: 12px 40px;
+        font-size: 14px;
+    }
+
+    .input-wrapper i {
+        left: 12px;
+        font-size: 16px;
+    }
+
+    .password-toggle {
+        right: 12px;
+        font-size: 16px;
+    }
+
+    .forgot-password {
+        margin-top: -8px;
+        margin-bottom: 18px;
+    }
+
+    .forgot-password a {
+        font-size: 13px;
+    }
+
+    .submit-btn {
+        padding: 13px;
+        font-size: 15px;
+    }
+
+    .divider {
+        margin: 20px 0;
+    }
+
+    .divider span {
+        font-size: 13px;
+        padding: 0 12px;
+    }
+
+    .social-btn {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .back-home {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+
+    .terms {
+        font-size: 12px;
+        margin-top: 18px;
+    }
+}
+
+/* Smartphones pequenos (360px) */
+@media (max-width: 360px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    .logo {
+        margin-bottom: 30px;
+    }
+
+    .logo i {
+        font-size: 45px;
+    }
+
+    .logo h1 {
+        font-size: 26px;
+    }
+
+    .tabs {
+        padding: 4px;
+    }
+
+    .tab {
+        padding: 9px;
+        font-size: 12px;
+    }
+
+    .form-input {
+        padding: 11px 38px;
+        font-size: 13px;
+    }
+
+    .social-login {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .social-btn {
+        width: 100%;
+        padding: 11px;
+    }
+
+    .submit-btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .container {
+        padding: 20px;
+        margin: 10px auto;
+    }
+
+    .logo {
+        margin-bottom: 20px;
+    }
+
+    .logo i {
+        font-size: 40px;
+        margin-bottom: 8px;
+    }
+
+    .logo h1 {
+        font-size: 24px;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    .tabs {
+        margin-bottom: 15px;
+    }
+
+    .divider {
+        margin: 15px 0;
+    }
+
+    .back-home {
+        margin-top: 15px;
+    }
+}

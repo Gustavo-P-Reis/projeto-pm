@@ -1,0 +1,447 @@
+/* ============================================
+   NOTIFICAÇÕES - RESPONSIVIDADE
+   Arquivo CSS para media queries da página de notificações
+   ============================================ */
+
+/* Tablet e dispositivos médios (768px) */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+    }
+
+    .sidebar .logo span,
+    .menu-item span {
+        display: none;
+    }
+
+    .sidebar .logo {
+        font-size: 24px;
+        justify-content: center;
+    }
+
+    .notification-badge {
+        top: 8px;
+        right: 10px;
+    }
+
+    .main-content {
+        margin-left: 70px;
+        padding: 15px;
+    }
+
+    .header {
+        padding: 15px 20px;
+        border-radius: 15px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .notification-popup {
+        left: 90px;
+        width: calc(100% - 110px);
+        top: 70px;
+        max-height: calc(100vh - 90px);
+        border-radius: 18px;
+    }
+
+    .notification-header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .notification-header h3 {
+        font-size: 16px;
+    }
+
+    .mark-all-read {
+        width: 100%;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .notification-list {
+        max-height: calc(100vh - 200px);
+    }
+
+    .notification-item {
+        padding: 15px 20px;
+    }
+
+    .notification-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .notification-text {
+        font-size: 13px;
+    }
+
+    .notification-time {
+        font-size: 11px;
+    }
+
+    .notification-footer {
+        padding: 13px 20px;
+    }
+
+    .view-all-link {
+        font-size: 13px;
+    }
+
+    .demo-card {
+        padding: 20px;
+        border-radius: 18px;
+    }
+
+    .demo-card h2 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .demo-card p,
+    .demo-card ul {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .demo-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Smartphones (480px) */
+@media (max-width: 480px) {
+    .main-content {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 12px 15px;
+        border-radius: 12px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .notification-popup {
+        left: 80px;
+        width: calc(100% - 90px);
+        top: 60px;
+        border-radius: 15px;
+        max-height: calc(100vh - 80px);
+    }
+
+    .notification-header {
+        padding: 12px 15px;
+    }
+
+    .notification-header h3 {
+        font-size: 15px;
+    }
+
+    .notification-header h3 i {
+        font-size: 16px;
+    }
+
+    .mark-all-read {
+        padding: 8px;
+        font-size: 11px;
+        border-radius: 8px;
+    }
+
+    .notification-list {
+        max-height: calc(100vh - 180px);
+    }
+
+    .notification-item {
+        padding: 12px 15px;
+        gap: 12px;
+    }
+
+    .notification-item:hover {
+        background: #f0f0f0;
+    }
+
+    .notification-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    .notification-content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .notification-text {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .notification-text strong {
+        font-size: 12px;
+    }
+
+    .notification-time {
+        font-size: 10px;
+        margin-top: 4px;
+    }
+
+    .notification-time i {
+        font-size: 9px;
+    }
+
+    .notification-empty {
+        padding: 40px 20px;
+    }
+
+    .notification-empty i {
+        font-size: 48px;
+        margin-bottom: 15px;
+    }
+
+    .notification-empty h4 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .notification-empty p {
+        font-size: 13px;
+    }
+
+    .notification-footer {
+        padding: 12px 15px;
+    }
+
+    .view-all-link {
+        font-size: 13px;
+    }
+
+    .demo-card {
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .demo-card h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .demo-card p,
+    .demo-card ul {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .demo-card ul {
+        padding-left: 20px;
+        margin-bottom: 15px;
+    }
+
+    .demo-card li {
+        margin-bottom: 6px;
+    }
+
+    .demo-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+
+    .notification-badge {
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+        top: 8px;
+        right: 12px;
+    }
+}
+
+/* Smartphones pequenos (360px) */
+@media (max-width: 360px) {
+    .sidebar {
+        width: 60px;
+    }
+
+    .main-content {
+        margin-left: 60px;
+        padding: 8px;
+    }
+
+    .header {
+        padding: 10px 12px;
+    }
+
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .notification-popup {
+        left: 70px;
+        width: calc(100% - 80px);
+        top: 55px;
+        border-radius: 12px;
+    }
+
+    .notification-header {
+        padding: 10px 12px;
+    }
+
+    .notification-header h3 {
+        font-size: 14px;
+    }
+
+    .mark-all-read {
+        padding: 7px;
+        font-size: 10px;
+    }
+
+    .notification-item {
+        padding: 10px 12px;
+        gap: 10px;
+    }
+
+    .notification-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .notification-text {
+        font-size: 11px;
+    }
+
+    .notification-text strong {
+        font-size: 11px;
+    }
+
+    .notification-time {
+        font-size: 9px;
+    }
+
+    .notification-empty {
+        padding: 30px 15px;
+    }
+
+    .notification-empty i {
+        font-size: 40px;
+    }
+
+    .notification-empty h4 {
+        font-size: 15px;
+    }
+
+    .notification-empty p {
+        font-size: 12px;
+    }
+
+    .notification-footer {
+        padding: 10px 12px;
+    }
+
+    .view-all-link {
+        font-size: 12px;
+    }
+
+    .demo-card {
+        padding: 12px;
+    }
+
+    .demo-card h2 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .demo-card p,
+    .demo-card ul {
+        font-size: 12px;
+    }
+
+    .demo-btn {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .notification-badge {
+        width: 16px;
+        height: 16px;
+        font-size: 9px;
+        top: 6px;
+        right: 10px;
+    }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .notification-popup {
+        top: 60px;
+        max-height: calc(100vh - 80px);
+    }
+
+    .notification-list {
+        max-height: calc(100vh - 160px);
+    }
+
+    .notification-item {
+        padding: 10px 15px;
+    }
+
+    .notification-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .notification-empty {
+        padding: 30px 20px;
+    }
+
+    .notification-empty i {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    .demo-card {
+        padding: 15px;
+    }
+
+    .demo-card h2 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .demo-card ul {
+        margin-bottom: 12px;
+    }
+}
+
+/* Ajustes para telas muito largas */
+@media (min-width: 1400px) {
+    .notification-popup {
+        left: 270px;
+        width: 450px;
+    }
+}
+
+/* Ajustes para melhor scroll em dispositivos touch */
+@media (hover: none) and (pointer: coarse) {
+    .notification-list {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+
+    .notification-item {
+        min-height: 70px;
+    }
+
+    .notification-item:active {
+        background: #e8e8e8;
+    }
+}

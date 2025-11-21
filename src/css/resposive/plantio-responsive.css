@@ -1,0 +1,371 @@
+/* ============================================
+   CRIAR PLANTIO - RESPONSIVIDADE
+   Arquivo CSS para media queries da página de criar plantio
+   ============================================ */
+
+/* Tablet e dispositivos médios (768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 15px;
+    }
+
+    .container {
+        padding: 25px 20px;
+        max-width: 100%;
+    }
+
+    .header {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .header-content h1 {
+        font-size: 22px;
+    }
+
+    .header-content p {
+        font-size: 13px;
+    }
+
+    .badge-plantio {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .back-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .form-group {
+        margin-bottom: 22px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+
+    .address-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .image-upload {
+        padding: 30px 20px;
+    }
+
+    .image-upload i {
+        font-size: 40px;
+        margin-bottom: 12px;
+    }
+
+    .image-upload p {
+        font-size: 15px;
+    }
+
+    .image-upload small {
+        font-size: 12px;
+    }
+
+    .map-container {
+        height: 250px;
+    }
+
+    .ai-section {
+        padding: 20px 15px;
+    }
+
+    .ai-section h3 {
+        font-size: 17px;
+        margin-bottom: 12px;
+    }
+
+    .generate-btn {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .ai-output {
+        padding: 18px;
+        font-size: 13px;
+    }
+
+    .submit-btn {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    .workflow-status {
+        padding: 13px;
+        font-size: 13px;
+    }
+}
+
+/* Smartphones (480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 15px 10px;
+    }
+
+    .container {
+        padding: 20px 15px;
+    }
+
+    .header {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+    }
+
+    .header-content h1 {
+        font-size: 20px;
+    }
+
+    .header-content p {
+        font-size: 12px;
+    }
+
+    .back-btn {
+        width: 38px;
+        height: 38px;
+    }
+
+    .back-btn i {
+        font-size: 16px;
+    }
+
+    .badge-plantio {
+        padding: 6px 16px;
+        font-size: 12px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    .form-input,
+    .form-textarea {
+        padding: 11px 14px;
+        font-size: 13px;
+    }
+
+    .form-textarea {
+        min-height: 100px;
+    }
+
+    .address-grid {
+        gap: 10px;
+    }
+
+    .image-upload {
+        padding: 25px 15px;
+    }
+
+    .image-upload i {
+        font-size: 36px;
+    }
+
+    .image-upload p {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .image-preview img {
+        max-height: 300px;
+        border-radius: 12px;
+    }
+
+    .map-container {
+        height: 200px;
+        border-radius: 12px;
+    }
+
+    .map-container i {
+        font-size: 40px;
+    }
+
+    .hashtags-section {
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .hashtags-section h4 {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+
+    .hashtags-section p {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+    .hashtag-suggestions {
+        gap: 8px;
+    }
+
+    .hashtag-chip {
+        padding: 6px 12px;
+        font-size: 12px;
+        border-radius: 15px;
+    }
+
+    .privacy-section {
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 18px;
+    }
+
+    .privacy-section h4 {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+
+    .privacy-options {
+        gap: 10px;
+    }
+
+    .privacy-option {
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .privacy-option i {
+        font-size: 20px;
+    }
+
+    .privacy-option h5 {
+        font-size: 13px;
+    }
+
+    .privacy-option p {
+        font-size: 11px;
+    }
+
+    .submit-btn {
+        padding: 14px;
+        font-size: 15px;
+        margin-top: 25px;
+        border-radius: 12px;
+    }
+}
+
+/* Smartphones pequenos (360px) */
+@media (max-width: 360px) {
+    body {
+        padding: 10px 8px;
+    }
+
+    .container {
+        padding: 18px 12px;
+        border-radius: 20px;
+    }
+
+    .header {
+        padding-bottom: 12px;
+        margin-bottom: 18px;
+    }
+
+    .header-content h1 {
+        font-size: 18px;
+    }
+
+    .back-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .form-input,
+    .form-textarea {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .image-upload {
+        padding: 25px 12px;
+    }
+
+    .image-upload i {
+        font-size: 42px;
+    }
+
+    .hashtags-section {
+        padding: 12px;
+    }
+
+    .hashtag-chip {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+
+    .privacy-section {
+        padding: 12px;
+    }
+
+    .privacy-option {
+        padding: 10px;
+    }
+
+    .privacy-option i {
+        font-size: 18px;
+    }
+
+    .privacy-option h5 {
+        font-size: 12px;
+    }
+
+    .submit-btn {
+        padding: 13px;
+        font-size: 14px;
+    }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .container {
+        margin: 10px auto;
+    }
+
+    .header {
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    .image-upload {
+        padding: 25px 20px;
+    }
+
+    .map-container {
+        height: 180px;
+    }
+
+    .hashtags-section,
+    .privacy-section {
+        padding: 12px;
+        margin-top: 15px;
+    }
+
+    .privacy-options {
+        flex-direction: row;
+    }
+}

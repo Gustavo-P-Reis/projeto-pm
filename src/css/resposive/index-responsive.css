@@ -1,0 +1,200 @@
+/* ============================================
+   INDEX - RESPONSIVIDADE
+   Arquivo CSS para media queries da página inicial
+   ============================================ */
+
+/* Tablet e dispositivos médios (768px) */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+    }
+
+    .sidebar .logo span,
+    .menu-item span {
+        display: none;
+    }
+
+    .sidebar .logo {
+        font-size: 24px;
+        justify-content: center;
+    }
+
+    .main-content {
+        margin-left: 70px;
+        padding: 15px;
+    }
+
+    .header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .header h1 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .auth-buttons {
+        justify-content: center;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .create-post {
+        padding: 15px;
+    }
+
+    .post-card {
+        padding: 15px;
+    }
+
+    .post-media {
+        grid-template-columns: 1fr;
+    }
+
+    .post-image,
+    .post-map {
+        height: 200px;
+    }
+
+    .post-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .user-info h3 {
+        font-size: 15px;
+    }
+
+    .post-content h2 {
+        font-size: 18px;
+    }
+
+    .post-actions {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .action-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .post-type-selector {
+        padding: 15px;
+    }
+
+    .post-type-option {
+        padding: 15px;
+    }
+}
+
+/* Smartphones (480px) */
+@media (max-width: 480px) {
+    .main-content {
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .auth-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .post-badge {
+        font-size: 11px;
+        padding: 4px 12px;
+    }
+
+    .workflow-status {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .create-post-input {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .post-type-option h3 {
+        font-size: 15px;
+    }
+
+    .post-type-option p {
+        font-size: 13px;
+    }
+
+    .post-location {
+        font-size: 13px;
+    }
+
+    .post-description {
+        font-size: 14px;
+    }
+
+    .user-info p {
+        font-size: 12px;
+    }
+}
+
+/* Smartphones pequenos (360px) */
+@media (max-width: 360px) {
+    .sidebar {
+        width: 60px;
+    }
+
+    .main-content {
+        margin-left: 60px;
+        padding: 8px;
+    }
+
+    .header {
+        padding: 12px 15px;
+    }
+
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+
+    .post-card {
+        padding: 12px;
+        border-radius: 15px;
+    }
+
+    .post-content h2 {
+        font-size: 16px;
+    }
+
+    .post-badge {
+        font-size: 10px;
+        padding: 3px 10px;
+    }
+
+    .action-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}
